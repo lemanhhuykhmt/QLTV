@@ -49,7 +49,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.cbGioiTinh = new System.Windows.Forms.ComboBox();
+            this.cbDocGia = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dtpNgayMuon = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +57,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.ckbNgayTra = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -139,6 +140,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.ckbNgayTra);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel8);
@@ -250,28 +252,30 @@
             this.btnXacNhan.TabIndex = 3;
             this.btnXacNhan.Text = "Xác Nhận";
             this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.cbGioiTinh);
+            this.panel8.Controls.Add(this.cbDocGia);
             this.panel8.Controls.Add(this.label3);
             this.panel8.Location = new System.Drawing.Point(58, 27);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(399, 30);
             this.panel8.TabIndex = 3;
             // 
-            // cbGioiTinh
+            // cbDocGia
             // 
-            this.cbGioiTinh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cbGioiTinh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbGioiTinh.FormattingEnabled = true;
-            this.cbGioiTinh.Items.AddRange(new object[] {
+            this.cbDocGia.Dock = System.Windows.Forms.DockStyle.Right;
+            this.cbDocGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDocGia.FormattingEnabled = true;
+            this.cbDocGia.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbGioiTinh.Location = new System.Drawing.Point(102, 0);
-            this.cbGioiTinh.Name = "cbGioiTinh";
-            this.cbGioiTinh.Size = new System.Drawing.Size(297, 30);
-            this.cbGioiTinh.TabIndex = 1;
+            this.cbDocGia.Location = new System.Drawing.Point(102, 0);
+            this.cbDocGia.Name = "cbDocGia";
+            this.cbDocGia.Size = new System.Drawing.Size(297, 30);
+            this.cbDocGia.TabIndex = 1;
+            this.cbDocGia.SelectedIndexChanged += new System.EventHandler(this.cbDocGia_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -297,7 +301,7 @@
             this.dtpNgayMuon.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayMuon.Dock = System.Windows.Forms.DockStyle.Right;
             this.dtpNgayMuon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayMuon.Location = new System.Drawing.Point(121, 0);
             this.dtpNgayMuon.Name = "dtpNgayMuon";
             this.dtpNgayMuon.Size = new System.Drawing.Size(278, 30);
@@ -326,8 +330,9 @@
             // 
             this.dtpNgayTra.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayTra.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dtpNgayTra.Enabled = false;
             this.dtpNgayTra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayTra.Location = new System.Drawing.Point(121, 0);
             this.dtpNgayTra.Name = "dtpNgayTra";
             this.dtpNgayTra.Size = new System.Drawing.Size(278, 30);
@@ -342,6 +347,15 @@
             this.label1.Size = new System.Drawing.Size(115, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày Trả";
+            // 
+            // ckbNgayTra
+            // 
+            this.ckbNgayTra.Location = new System.Drawing.Point(464, 141);
+            this.ckbNgayTra.Name = "ckbNgayTra";
+            this.ckbNgayTra.Size = new System.Drawing.Size(30, 30);
+            this.ckbNgayTra.TabIndex = 6;
+            this.ckbNgayTra.UseVisualStyleBackColor = true;
+            this.ckbNgayTra.CheckedChanged += new System.EventHandler(this.ckbNgayTra_CheckedChanged);
             // 
             // frmThemCTPM
             // 
@@ -390,7 +404,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox cbGioiTinh;
+        private System.Windows.Forms.ComboBox cbDocGia;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DateTimePicker dtpNgayTra;
@@ -398,5 +412,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.DateTimePicker dtpNgayMuon;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox ckbNgayTra;
     }
 }

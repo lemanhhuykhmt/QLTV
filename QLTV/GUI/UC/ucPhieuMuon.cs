@@ -17,6 +17,7 @@ namespace QLTV.GUI.UC
         public ucPhieuMuon()
         {
             InitializeComponent();
+            loadDuLieu();
         }
         private void loadDuLieu()
         {
@@ -79,26 +80,26 @@ namespace QLTV.GUI.UC
         }
         private void dgvDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (dgvDanhSach.Rows.Count == e.RowIndex + 1 || e.RowIndex == -1) return;
-            //int id = Convert.ToInt32(dgvDanhSach.Rows[e.RowIndex].Cells["colMa"].Value.ToString());
-            //if (e.ColumnIndex == dgvDanhSach.Columns["colSua"].Index)
-            //{
-            //    frmSuaGV f = new frmSuaGV(id);
-            //    f.ShowDialog();
-            //    loadDuLieu();
-            //}
-            //else if (e.ColumnIndex == dgvDanhSach.Columns["colXoa"].Index)
-            //{
-            //    int ketQua = GiaoVienControl.xoaThongTin(id);
-            //    if (ketQua <= 0)
-            //    {
-            //        MessageBox.Show("Thực hiện thất bại");
-            //    }
-            //    else
-            //    {
-            //        loadDuLieu();
-            //    }
-            //}
+            if (dgvDanhSach.Rows.Count == e.RowIndex + 1 || e.RowIndex == -1) return;
+            int id = Convert.ToInt32(dgvDanhSach.Rows[e.RowIndex].Cells["colMa"].Value.ToString());
+            if (e.ColumnIndex == dgvDanhSach.Columns["colSua"].Index)
+            {
+                frmThemCTPM f = new frmThemCTPM(id);
+                f.ShowDialog();
+                loadDuLieu();
+            }
+            else if (e.ColumnIndex == dgvDanhSach.Columns["colXoa"].Index)
+            {
+                int ketQua = PhieuMuonControl.xoaDuLieu(id);
+                if (ketQua <= 0)
+                {
+                    MessageBox.Show("Thực hiện thất bại");
+                }
+                else
+                {
+                    loadDuLieu();
+                }
+            }
             //else if (e.ColumnIndex == dgvDanhSach.Columns["colChiTiet"].Index)
             //{
             //    //

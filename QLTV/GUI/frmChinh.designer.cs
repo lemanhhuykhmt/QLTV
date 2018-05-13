@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnPhieuMuon = new System.Windows.Forms.Button();
             this.btnHocSinh = new System.Windows.Forms.Button();
             this.btnGiaoVien = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.btnPhieuMuon);
             this.groupBox1.Controls.Add(this.btnHocSinh);
             this.groupBox1.Controls.Add(this.btnGiaoVien);
@@ -62,22 +60,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lựa Chọn";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 43);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // btnPhieuMuon
             // 
             this.btnPhieuMuon.Location = new System.Drawing.Point(3, 139);
             this.btnPhieuMuon.Name = "btnPhieuMuon";
             this.btnPhieuMuon.Size = new System.Drawing.Size(197, 43);
             this.btnPhieuMuon.TabIndex = 2;
-            this.btnPhieuMuon.Text = "button4";
+            this.btnPhieuMuon.Text = "Phiếu Mượn";
             this.btnPhieuMuon.UseVisualStyleBackColor = true;
             this.btnPhieuMuon.Click += new System.EventHandler(this.btnPhieuMuon_Click);
             // 
@@ -87,7 +76,7 @@
             this.btnHocSinh.Name = "btnHocSinh";
             this.btnHocSinh.Size = new System.Drawing.Size(197, 43);
             this.btnHocSinh.TabIndex = 0;
-            this.btnHocSinh.Text = "Học Sinh";
+            this.btnHocSinh.Text = "Sách";
             this.btnHocSinh.UseVisualStyleBackColor = true;
             this.btnHocSinh.Click += new System.EventHandler(this.btnHocSinh_Click);
             // 
@@ -97,7 +86,7 @@
             this.btnGiaoVien.Name = "btnGiaoVien";
             this.btnGiaoVien.Size = new System.Drawing.Size(197, 43);
             this.btnGiaoVien.TabIndex = 0;
-            this.btnGiaoVien.Text = "Giáo Viên";
+            this.btnGiaoVien.Text = "Độc Giả";
             this.btnGiaoVien.UseVisualStyleBackColor = true;
             this.btnGiaoVien.Click += new System.EventHandler(this.btnGiaoVien_Click);
             // 
@@ -129,7 +118,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnPhieuMuon;
         private System.Windows.Forms.Button btnHocSinh;
         private System.Windows.Forms.Button btnGiaoVien;

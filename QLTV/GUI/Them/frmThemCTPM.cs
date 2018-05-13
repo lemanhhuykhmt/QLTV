@@ -18,14 +18,19 @@ namespace QLTV.GUI.Them
         public frmThemCTPM()
         {
             InitializeComponent();
+
             PM = new PhieuMuon();
             loadSach();
+            loadDSDocGia();
         }
         public frmThemCTPM(int maPM)
         {
             InitializeComponent();
             PM = new PhieuMuon(maPM);
-
+            loadDSDocGia();
+            loadSach();
+            loadChiTiet();
+            loadThongTin();
         }
 
         private void loadSach()
@@ -57,6 +62,35 @@ namespace QLTV.GUI.Them
                 dgvChiTiet.Rows[dgvChiTiet.Rows.Count - 2].Tag = PM.ChiTiet.ListSach[i].MaSach;
             }
 
+        }
+        private void loadDSDocGia()
+        {
+            List<DocGia> listDG = new List<DocGia>();
+            DataTable dt = ChiTietPMControl.layDanhSachDG();
+            for(int i = 0; i < dt.Rows.Count; ++i)
+            {
+                listDG.Add(new DocGia() { MaDG = Convert.ToInt32(dt.Rows[i]["MaDG"].ToString()), TenDG = dt.Rows[i]["TenDG"].ToString()});
+            }
+            cbDocGia.DataSource = listDG;
+            cbDocGia.DisplayMember = "TenDG";
+        }
+        private void loadThongTin()
+        {
+            DataTable dt = PhieuMuonControl.layThongTin(PM.MaPM);
+            PM.NguoiDoc = new DocGia(dt.Rows[0]["MaDG"].ToString().Length == 0 ? 0 : Convert.ToInt32(dt.Rows[0]["MaDG"].ToString()));
+            cbDocGia.Text = PM.NguoiDoc.TenDG;
+            dtpNgayMuon.Value = PM.NgayMuon;
+            if(!PM.NgayTra.ToString().Equals(new DateTime(1900, 1, 1).ToString()))
+            {
+                dtpNgayTra.Enabled = true;
+                ckbNgayTra.Checked = true;
+                dtpNgayTra.Value = PM.NgayTra;
+            }
+            else
+            {
+                dtpNgayTra.Enabled = false;
+                ckbNgayTra.Checked = false;
+            }
         }
 
         private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -100,6 +134,78 @@ namespace QLTV.GUI.Them
                 loadChiTiet();
                 loadSach();
             }
+        }
+
+        private void ckbNgayTra_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpNgayTra.Enabled = ckbNgayTra.Checked;
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            if(PM.MaPM == 0)
+            {
+                string ngaytra = "";
+                if (ckbNgayTra.Checked == false)
+                {
+                    ngaytra = "";
+                }
+                else
+                {
+                    ngaytra = dtpNgayTra.Text;
+                }
+                int ketqua = PhieuMuonControl.themDuLieu(PM.NguoiDoc.MaDG, PM.NgayMuon.ToString(), ngaytra);
+                if(ketqua <= 0)
+                {
+                    return;
+                }
+                ketqua = 0;
+                PM.MaPM = PhieuMuonControl.layMaPMMoi();
+                if (PM.MaPM == 0) return;
+                for (int i = 0; i < PM.ChiTiet.ListSach.Count; ++i)
+                {
+                    ketqua += ChiTietPMControl.themDuLieu(PM.MaPM, PM.ChiTiet.ListSach[i].MaSach, PM.ChiTiet.ListSach[i].SoLuong);
+                }
+                if (ketqua > 0)
+                {
+                    MessageBox.Show("them thanh cong");
+                    this.Close();
+                }
+            }
+            else
+            {
+                //
+                int docgia = PM.NguoiDoc.MaDG;
+                string ngaymuon = dtpNgayMuon.Text;
+                string ngaytra = "";
+                if (ckbNgayTra.Checked == true)
+                {
+                    ngaytra = dtpNgayTra.Text;
+                }
+                int ketqua = PhieuMuonControl.suaDuLieu(PM.MaPM, docgia, ngaymuon, ngaytra);
+                if(ketqua <= 0)
+                {
+                    return;
+                }
+                //
+                PhieuMuonControl.xoaChiTiet(PM.MaPM);
+                //
+                ketqua = 0;
+                for (int i = 0; i < PM.ChiTiet.ListSach.Count; ++i)
+                {
+                    ketqua += ChiTietPMControl.themDuLieu(PM.MaPM, PM.ChiTiet.ListSach[i].MaSach, PM.ChiTiet.ListSach[i].SoLuong);
+                }
+                if (ketqua > 0)
+                {
+                    MessageBox.Show("sua thanh cong");
+                    this.Close();
+                }
+            }
+        }
+
+        private void cbDocGia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PM.NguoiDoc = cbDocGia.SelectedValue as DocGia;
         }
     }
 }

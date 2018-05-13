@@ -23,8 +23,9 @@ namespace QLTV.Model
             for (int i = 0; i < dt.Rows.Count; ++i)
             {
                 Sach sanPham = new Sach() {
-                    MaSach = Convert.ToInt32(dt.Rows[i][0].ToString()),
-                    SoLuong = Convert.ToInt32(dt.Rows[i][1].ToString())};
+                    MaSach = Convert.ToInt32(dt.Rows[i]["MaSach"].ToString()),
+                    TenSach = dt.Rows[i]["TenSach"].ToString(),
+                    SoLuong = Convert.ToInt32(dt.Rows[i]["SoLuong"].ToString())};
                 ListSach.Add(sanPham);
             }
         }

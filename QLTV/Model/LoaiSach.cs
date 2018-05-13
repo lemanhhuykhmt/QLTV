@@ -20,8 +20,13 @@ namespace QLTV.Model
         }
         public LoaiSach(int ma)
         {
-            DataTable dt = LoaiSachControl.layThongTin(ma);
             MaLoai = ma;
+            if (ma == 0)
+            {
+                TenLoai = "None";
+                return;
+            }
+            DataTable dt = LoaiSachControl.layThongTin(ma);
             TenLoai = dt.Rows[0]["TenLoai"].ToString();
         }
     }

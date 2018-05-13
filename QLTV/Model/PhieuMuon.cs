@@ -28,9 +28,9 @@ namespace QLTV.Model
         {
             MaPM = maPM;
             DataTable dt = PhieuMuonControl.layThongTin(maPM);
-            NguoiDoc = new DocGia(Convert.ToInt32(dt.Rows[0][1].ToString().Length == 0 ? "0" : dt.Rows[0][1].ToString()));
-            NgayMuon = DateTime.Parse(dt.Rows[0][2].ToString());
-            NgayTra = DateTime.Parse(dt.Rows[0][3].ToString());
+            NguoiDoc = new DocGia(Convert.ToInt32(dt.Rows[0]["MaDG"].ToString().Length == 0 ? "0" : dt.Rows[0]["MaDG"].ToString()));
+            NgayMuon = DateTime.Parse(dt.Rows[0]["NgayMuon"].ToString());
+            NgayTra = dt.Rows[0]["NgayTra"].ToString().Length != 0 ? DateTime.Parse(dt.Rows[0]["NgayTra"].ToString()) : new DateTime(1900, 1, 1);
             ChiTiet = new ChiTietPM(MaPM);
         }
     }
