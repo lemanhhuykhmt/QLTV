@@ -45,7 +45,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ChiTietPMControl.cs" />
     <Compile Include="Control\DocGiaControl.cs" />
+    <Compile Include="Control\LoaiSachControl.cs" />
+    <Compile Include="Control\PhieuMuonControl.cs" />
     <Compile Include="Control\SachControl.cs" />
     <Compile Include="ExtendModel\DataProvider.cs" />
     <Compile Include="Form1.cs">
@@ -60,11 +63,29 @@
     <Compile Include="GUI\frmChinh.designer.cs">
       <DependentUpon>frmChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Them\frmLoaiSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Them\frmLoaiSach.Designer.cs">
+      <DependentUpon>frmLoaiSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Them\frmThemCTPM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Them\frmThemCTPM.Designer.cs">
+      <DependentUpon>frmThemCTPM.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UC\ucDocGia.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\UC\ucDocGia.Designer.cs">
       <DependentUpon>ucDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UC\ucPhieuMuon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UC\ucPhieuMuon.Designer.cs">
+      <DependentUpon>ucPhieuMuon.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UC\ucSach.cs">
       <SubType>UserControl</SubType>
@@ -72,7 +93,11 @@
     <Compile Include="GUI\UC\ucSach.Designer.cs">
       <DependentUpon>ucSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ChiTietPM.cs" />
+    <Compile Include="Model\DocGia.cs" />
     <Compile Include="Model\LoaiSach.cs" />
+    <Compile Include="Model\PhieuMuon.cs" />
+    <Compile Include="Model\Sach.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -81,8 +106,17 @@
     <EmbeddedResource Include="GUI\frmChinh.resx">
       <DependentUpon>frmChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Them\frmLoaiSach.resx">
+      <DependentUpon>frmLoaiSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Them\frmThemCTPM.resx">
+      <DependentUpon>frmThemCTPM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\ucDocGia.resx">
       <DependentUpon>ucDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UC\ucPhieuMuon.resx">
+      <DependentUpon>ucPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\UC\ucSach.resx">
       <DependentUpon>ucSach.cs</DependentUpon>

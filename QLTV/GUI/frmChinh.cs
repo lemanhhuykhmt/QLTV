@@ -50,5 +50,14 @@ namespace QLTV.GUI
             frm.Visible = true;
             pnlNoiDung.Controls.Add(frm);
         }
+
+        private void btnPhieuMuon_Click(object sender, EventArgs e)
+        {
+            pnlNoiDung.Controls.Clear();
+            ucPhieuMuon frm = new ucPhieuMuon();
+            frm.Size = new Size(pnlNoiDung.Width, pnlNoiDung.Height);
+            frm.Visible = true;
+            pnlNoiDung.Controls.Add(frm);
+        }
     }
 }

@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnPhieuMuon = new System.Windows.Forms.Button();
             this.btnHocSinh = new System.Windows.Forms.Button();
             this.btnGiaoVien = new System.Windows.Forms.Button();
             this.pnlNoiDung = new System.Windows.Forms.Panel();
@@ -45,19 +45,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 564);
+            this.panel1.Size = new System.Drawing.Size(209, 635);
             this.panel1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.btnPhieuMuon);
             this.groupBox1.Controls.Add(this.btnHocSinh);
             this.groupBox1.Controls.Add(this.btnGiaoVien);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(203, 564);
+            this.groupBox1.Size = new System.Drawing.Size(203, 635);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lựa Chọn";
@@ -71,14 +71,15 @@
             this.button3.Text = "button1";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnPhieuMuon
             // 
-            this.button4.Location = new System.Drawing.Point(3, 139);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 43);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnPhieuMuon.Location = new System.Drawing.Point(3, 139);
+            this.btnPhieuMuon.Name = "btnPhieuMuon";
+            this.btnPhieuMuon.Size = new System.Drawing.Size(197, 43);
+            this.btnPhieuMuon.TabIndex = 2;
+            this.btnPhieuMuon.Text = "button4";
+            this.btnPhieuMuon.UseVisualStyleBackColor = true;
+            this.btnPhieuMuon.Click += new System.EventHandler(this.btnPhieuMuon_Click);
             // 
             // btnHocSinh
             // 
@@ -105,14 +106,14 @@
             this.pnlNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNoiDung.Location = new System.Drawing.Point(209, 0);
             this.pnlNoiDung.Name = "pnlNoiDung";
-            this.pnlNoiDung.Size = new System.Drawing.Size(938, 564);
+            this.pnlNoiDung.Size = new System.Drawing.Size(938, 635);
             this.pnlNoiDung.TabIndex = 2;
             // 
             // frmChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 564);
+            this.ClientSize = new System.Drawing.Size(1147, 635);
             this.Controls.Add(this.pnlNoiDung);
             this.Controls.Add(this.panel1);
             this.Name = "frmChinh";
@@ -129,7 +130,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnPhieuMuon;
         private System.Windows.Forms.Button btnHocSinh;
         private System.Windows.Forms.Button btnGiaoVien;
         private System.Windows.Forms.Panel pnlNoiDung;

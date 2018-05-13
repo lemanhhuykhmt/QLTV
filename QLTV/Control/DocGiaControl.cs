@@ -32,5 +32,11 @@ namespace QLTV.Control
             string query = "exec xoadg @ma";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { ma});
         }
+
+        public static DataTable layThongTin(int maDG)
+        {
+            string query = "select * from DocGia where MaDG = @ma";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maDG});
+        }
     }
 }
