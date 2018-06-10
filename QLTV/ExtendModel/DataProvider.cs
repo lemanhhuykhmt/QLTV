@@ -17,7 +17,7 @@ namespace QLTV.ExtendModel
             private set { instance = value; }
         }
         private DataProvider() { }
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QLTV;Integrated Security=True";
+        private string connectionString = @"Data Source=DANGSON\SQL2014;Initial Catalog=QLTV;Integrated Security=True";
         //Data Source=.\\SQLEXPRESS;Initial Catalog=BanBanh;Integrated Security=True
         public DataTable ExecuteQuery(string query, object[] parameters = null)
         {
