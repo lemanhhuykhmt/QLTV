@@ -12,7 +12,7 @@ namespace QLTV.Control
     {
         public static DataTable layDanhSach()
         {
-            string query = "select s.MaSach, s.TenSach, ls.TenLoai, s.TenTG, s.NSB, s.GiaTien, s.SoLuong " 
+            string query = "select s.MaSach, s.TenSach, ls.TenLoai, s.TenTG, s.NSB, s.GiaTien, s.SoLuong "
                 + "from Sach as s left join LoaiSach as ls on s.Loai = ls.MaLoai";
             return DataProvider.Instance.ExecuteQuery(query);
         }
@@ -38,9 +38,9 @@ namespace QLTV.Control
         {
             string str = "%" + value + "%";
             string query = "select s.MaSach, s.TenSach, ls.TenLoai, s.TenTG, s.NSB, s.GiaTien, s.SoLuong "
-                + "from Sach as s left join LoaiSach as ls on s.Loai = ls.MaLoai " 
+                + "from Sach as s left join LoaiSach as ls on s.Loai = ls.MaLoai "
                 + " where s.TenSach like @ten or ls.TenLoai like @loai or s.TenTG like @tacgin or s.NSB like @nsb";
-            return DataProvider.Instance.ExecuteQuery(query, new object[] { str, str, str, str});
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { str, str, str, str });
         }
 
         public static DataTable layDanhSachLoai()
@@ -49,10 +49,10 @@ namespace QLTV.Control
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public static DataTable layThongTin (int id)
+        public static DataTable layThongTin(int id)
         {
             string query = "select * from Sach where MaSach = @ma";
-            return DataProvider.Instance.ExecuteQuery(query, new object[] { id});
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { id });
         }
     }
 
